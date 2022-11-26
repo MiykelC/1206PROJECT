@@ -1,0 +1,14 @@
+:root {
+    --bs-font-sans-serif:"Rubik", sans-serif;
+}
+
+.container-xxl {
+    max-width: 1530px;
+}
+
+body{
+    background-image: url("/img/background.svg");
+    background: rgb(243,243,243);
+}
+
+a {}
