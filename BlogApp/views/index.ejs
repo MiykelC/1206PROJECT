@@ -21,40 +21,17 @@
 
 <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
 
-<a href="#" class="col text-center category__link">
+<% if(categories != '') { %>
+<% categories.forEach(function(category, index){ %>
+<a href="/categories/<%- category.name %>" class="col text-center category__link">
     <div class="category__img shadow">
-        <img src="/img/American.jpg"  alt="American food" loading="lazy">
+        <img src="/img/<%- category.image %>"  alt="American food" loading="lazy">
     </div>
-    <div class="pt-1">American Food</div>
+    <div class="pt-1"><%- category.name %></div>
 </a>
+<% }) %>
+<% } %>
 
-<a href="#" class="col text-center category__link">
-    <div class="category__img shadow">
-        <img src="/img/American.jpg"  alt="American food" loading="lazy">
-    </div>
-    <div class="pt-1">American Food</div>
-</a>
-
-<a href="#" class="col text-center category__link">
-    <div class="category__img shadow">
-        <img src="/img/American.jpg"  alt="American food" loading="lazy">
-    </div>
-    <div class="pt-1">American Food</div>
-</a>
-
-<a href="#" class="col text-center category__link">
-    <div class="category__img shadow">
-        <img src="/img/American.jpg"  alt="American food" loading="lazy">
-    </div>
-    <div class="pt-1">American Food</div>
-</a>
-
-<a href="#" class="col text-center category__link">
-    <div class="category__img shadow">
-        <img src="/img/American.jpg"  alt="American food" loading="lazy">
-    </div>
-    <div class="pt-1">American Food</div>
-</a>
 
 <a href="/categories" class="col text-center category__link">
     <div class="category__img shadow">
@@ -78,43 +55,20 @@
     </div>
 
     <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-        <a href="/recipe/#" class="col text-center category__link">
+
+
+    <% if(food != '') { %>
+    <% food.latest.forEach(function(recipe, index){ %>
+        <a href="/recipe/<%= recipe._id%>" class="col text-center category__link">
             <div class="category__img category__img--large shadow">
-                <img src="/img/Oreo.jpg"  alt="Oreo Milkshake" loading="lazy">
+                <img src="/uploads/<%= recipe.image%>"  alt="<%= recipe.name%>" loading="lazy">
             </div>
-            <div class="pt-1">Oreo MilkShake</div>
+            <div class="pt-1"><%= recipe.name%></div>
         </a>
+    <% }) %>
+    <% } %>
 
-        <a href="/recipe/#" class="col text-center category__link">
-            <div class="category__img category__img--large shadow">
-                <img src="/img/Oreo.jpg"  alt="Oreo Milkshake" loading="lazy">
-            </div>
-            <div class="pt-1">Oreo MilkShake</div>
-        </a>
-
-        <a href="/recipe/#" class="col text-center category__link">
-            <div class="category__img category__img--large shadow">
-                <img src="/img/Oreo.jpg"  alt="Oreo Milkshake" loading="lazy">
-            </div>
-            <div class="pt-1">Oreo MilkShake</div>
-        </a>
-
-
-        <a href="/recipe/#" class="col text-center category__link">
-            <div class="category__img category__img--large shadow">
-                <img src="/img/Oreo.jpg"  alt="Oreo Milkshake" loading="lazy">
-            </div>
-            <div class="pt-1">Oreo MilkShake</div>
-        </a>
-
-
-        <a href="/recipe/#" class="col text-center category__link">
-            <div class="category__img category__img--large shadow">
-                <img src="/img/Oreo.jpg"  alt="Oreo Milkshake" loading="lazy">
-            </div>
-            <div class="pt-1">Oreo MilkShake</div>
-        </a>
-
+        
 
     </div>
 </section>
