@@ -19,7 +19,7 @@ ingredients: {
 },
 category: {
     type: String,
-    enum:['Filipino', 'Thai', 'American', 'Chinese','Indian', 'Vietnamese', 'Mexican'],
+    enum:['Filipino', 'Thai', 'American', 'Chinese', 'Indian', 'Vietnamese', 'Mexican', 'Korean', 'Japanese', 'Middle Eastern'],
     required: 'This is required.'
 },
 image: {
