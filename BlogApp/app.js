@@ -7,7 +7,6 @@ const flash = require('connect-flash');
 
 
 
-
 const app = express();
 const port = 5000;
 
@@ -16,6 +15,8 @@ require('dotenv').config();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(expressLayouts);
+
+
 
 
 
@@ -38,3 +39,6 @@ app.use('/', routes);
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+
+

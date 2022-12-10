@@ -19,5 +19,10 @@ router.post('/submit-recipe', recipeController.submitRecipeOnPost);
 
 
 router.get('/about', recipeController.About);
+router.get('/contact', recipeController.Contact);
+
+router.post("register", recipeController.register);
+router.post("login", recipeController.login);
+
 
 module.exports = router; 

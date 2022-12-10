@@ -199,3 +199,41 @@ res.redirect('/submit-recipe');
 exports.About = async(req, res) => {
    res.render('about', { title: 'Cooking Blog - About' });
 }
+
+exports.Contact = async(req, res) => {
+   res.render('contact', { title: 'Cooking Blog - About' });
+}
+
+
+// register 
+
+exports.register = async(req, res) => {
+   const data = request.body;
+
+   const newUser = new User({
+      name: data.name,
+      email: data.email,
+      password: data.password
+   });
+
+   try{
+   const response= await newUser.save();
+   return response.status(201).json({
+      message: 'User created successfully',
+      data: response
+   });
+   } catch (error) {
+      return response.status(500).json({
+         message: 'There was an error',
+         error
+   });
+}
+
+}
+
+//login 
+
+
+exports.login = async(req, res) => {
+   res.render('login', { title: 'Cooking Blog - Login' });
+}
