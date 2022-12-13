@@ -28,6 +28,6 @@ image: {
 },
 });
 
-recipeSchema.index({ name: 'text', description: 'text' });
+recipeSchema.index({ name: 'text', description: 'text', categpry: 'text'});
 
 module.exports = mongoose.model('Recipe', recipeSchema);
