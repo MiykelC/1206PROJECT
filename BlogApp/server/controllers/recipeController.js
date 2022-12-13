@@ -1,7 +1,8 @@
 require('../models/database');
 const Category = require('../models/Category');
 const Recipe = require('../models/Recipe');
-
+const User = require('../models/User');
+const bcrypt = require('bcryptjs');
 
 exports.homepage = async(req, res) => {
 
@@ -210,10 +211,12 @@ exports.Contact = async(req, res) => {
 exports.register = async(req, res) => {
    const data = request.body;
 
+   const encryptPassword = await bcrypt.hash(data.password, 10);
+
    const newUser = new User({
       name: data.name,
       email: data.email,
-      password: data.password
+      password: encryptPassword
    });
 
    try{
@@ -235,5 +238,28 @@ exports.register = async(req, res) => {
 
 
 exports.login = async(req, res) => {
-   res.render('login', { title: 'Cooking Blog - Login' });
+  const data = request.body;
+
+  let foundUser = User.findOne({ email: data.email});
+
+  if (foundUser) {
+const matchPassword = await bcrypt.compare(data.password, foundUser.password);
+if (matchPassword) {
+   return response.status(200).json({
+      message: 'User logged in successfully',
+      data: foundUser
+   });
+
+} else {
+   return response.status(401).json({
+      message: 'Wrong password',
+      data: null
+   });
+}
+  } else {
+     return response.status(404).json({
+        message: 'User not found',
+        data: null
+     });
+  }
 }
